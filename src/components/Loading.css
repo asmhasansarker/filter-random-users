@@ -1,0 +1,29 @@
+.custom-loading{
+    /* margin-left: 80% !important; */
+    text-align: center;
+    margin: 20% 70%;
+}
+
+.custom-loading h5{
+    margin: 0 100px !important;
+}
+
+
+@media screen and (max-width: 992px) {
+    .custom-loading{
+        margin: 20% 40%;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .custom-loading{
+        margin: 20% 20%;
+    }
+    }
+  
+  @media screen and (max-width: 600px) {
+    .custom-loading{
+        margin: 20% 5%;
+    }
+  }
+  
