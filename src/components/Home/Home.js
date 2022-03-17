@@ -25,7 +25,6 @@ const Home = () => {
     setSearchName(event.target.value);
   };
 
-
   return (
     <div className="container-fluid">
       <nav className="navbar   navbar-light bg-light shadow-sm mb-4">
@@ -54,29 +53,34 @@ const Home = () => {
       </nav>
       <div className="users-container container">
         {loading && <Loading />}
-        {(!loading &&
-          users
-            .filter((user) => {
-              if (searchName === "") {
-                return user;
-              } else if (
-                user.name.first.toLowerCase().includes(searchName.toLowerCase())
-              ) {
-                return user;
-              }
-            }).length) ? users
-            .filter((user) => {
-              if (searchName === "") {
-                return user;
-              } else if (
-                user.name.first.toLowerCase().includes(searchName.toLowerCase())
-              ) {
-                return user;
-              }
-            })
-            .map((user, index) => {
-              return <SingleUser key={index} user={user} />;
-            }) : !loading && <NotFound/>}
+        {!loading &&
+        users.filter((user) => {
+          if (searchName === "") {
+            return user;
+          } else if (
+            user.name.first.toLowerCase().includes(searchName.toLowerCase())
+          ) {
+            return user;
+          }
+          return false;
+        }).length
+          ? users
+              .filter((user) => {
+                if (searchName === "") {
+                  return user;
+                } else if (
+                  user.name.first
+                    .toLowerCase()
+                    .includes(searchName.toLowerCase())
+                ) {
+                  return user;
+                }
+                return false;
+              })
+              .map((user, index) => {
+                return <SingleUser key={index} user={user} />;
+              })
+          : !loading && <NotFound />}
       </div>
     </div>
   );
